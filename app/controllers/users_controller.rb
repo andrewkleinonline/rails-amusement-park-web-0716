@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show]
+  #before_action :set_user, only: [:show]
 
   def new
     @user = User.new
@@ -20,13 +20,24 @@ class UsersController < ApplicationController
   end
 
   def show
-    # binding.pry
+     #binding.pry
     if session[:user_id]
-
+      if params[:attraction_id]
+        # binding.pry
+        ride = Ride.create(user_id: session[:user_id], attraction_id: params[:attraction_id])
+        @message = ride.take_ride
+      end
+      @user = User.find(session[:user_id])
     else
       # binding.pry
       redirect_to root_path
     end
+  end
+
+  def go_on_ride
+    #create a new ride
+    #user_id .. sessions
+    #attraction ..
   end
 
 

@@ -1,3 +1,5 @@
+<%= render partial: 'message', locals: {message: @message} if @message %>
+
 <h1><%= @user.name %></h1>
 
 <h2>Mood: <%= @user.mood %></h2>
@@ -8,5 +10,7 @@
 </p>
 
 <%= render partial: 'admin' if @user.admin%>
+
+<%= link_to "See attractions", attractions_path %><br>
 
 <%= link_to "Log Out", session_path(@user.id), method: 'delete'  %>

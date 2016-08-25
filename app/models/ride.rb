@@ -11,6 +11,7 @@ class Ride < ActiveRecord::Base
       self.user.happiness += self.attraction.happiness_rating
       # binding.pry
       self.user.save
+      "Thanks for riding the #{self.attraction.name}!"
     elsif is_tall_enough?
       "Sorry. You do not have enough tickets the #{self.attraction.name}."
     elsif has_enough_tickets?
