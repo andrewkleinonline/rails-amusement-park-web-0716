@@ -1,0 +1,12 @@
+<h1><%= @user.name %></h1>
+
+<h2>Mood: <%= @user.mood %></h2>
+
+<p>
+  Tickets: <%= @user.tickets %><br>
+  Height: <%= @user.height %>
+</p>
+
+<%= render partial: 'admin' if @user.admin%>
+
+<%= link_to "Log Out", session_path(@user.id), method: 'delete'  %>
