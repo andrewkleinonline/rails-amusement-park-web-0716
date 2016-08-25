@@ -24,6 +24,7 @@ class Ride < ActiveRecord::Base
   private
 
   def has_enough_tickets?
+    # binding.pry
     self.user.tickets >= self.attraction.tickets
   end
 

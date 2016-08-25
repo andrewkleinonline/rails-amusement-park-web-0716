@@ -8,7 +8,11 @@ class AttractionsController < ApplicationController
   end
 
   def show
-    @admin = true if User.find(session[:user_id]).admin
+    if session[:user_id]
+      @admin = true if User.find(session[:user_id]).admin
+    else
+      @admin = false
+    end
   end
 
   def new
